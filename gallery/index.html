@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KIYARAA CONINFRA</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#003366', secondary: '#C0C0C0' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%), url('https://readdy.ai/api/search-image?query=modern%20corporate%20office%20building%20with%20glass%20facade%2C%20professional%20team%20working%20together%2C%20collaborative%20workspace%2C%20natural%20lighting%2C%20contemporary%20architecture%2C%20high-end%20finishes%2C%20minimalist%20design%2C%20photorealistic%2C%20cinematic%20lighting&width=1920&height=1080&seq=about_hero&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+
+<body class="bg-white">
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="./../index.html" class="flex items-center space-x-2">
+                    <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                        alt="KIYARAA CONINFRA" class="h-20 w-auto">
+                </a>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="./../index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Home</a>
+                <a href="./../about-us/index.html" class="nav-link text-primary font-medium">About Us</a>
+                <a href="./../our-projects/index.html"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Our
+                    Projects</a>
+                <a href="./../gallery/index.html"
+                    class="text-gray-800 font-medium py-2 border-b border-gray-100">Gallery</a>
+                <a href="#contact"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Contact Us</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center lg:hidden text-gray-700 hover:text-primary cursor-pointer"
+                    id="mobile-menu-button">
+                    <i class="ri-menu-line ri-lg"></i>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="./../index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">Home</a>
+                <a href="./../about-us/index.html" class="text-primary font-medium py-2 border-b border-gray-100">About
+                    Us</a>
+                <a href="./../our-projects/index.html"
+                    class="text-gray-800 font-medium py-2 border-b border-gray-100">Our Projects</a>
+                <a href="./../gallery/index.html"
+                    class="text-gray-800 font-medium py-2 border-b border-gray-100">Gallery</a>
+                <a href="#contact" class="text-gray-800 font-medium py-2">Contact Us</a>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b pt-24">
+        <div class="container mx-auto px-1 py-1">
+
+            <span class="text-gray-800"></span>
+        </div>
+    </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="text-center py-12">
+        <h1 class="text-4xl font-bold mb-4">Our Gallery</h1>
+        <p class="text-lg text-gray-600">Explore visuals of our exceptional developments and vibrant communities.</p>
+    </section>
+
+    <!-- Gallery Grid -->
+    <h2 class="text-3xl font-semibold mb-6">Hillock</h2>
+    <div class="px-4 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery">
+
+        <!-- Hillock -->
+
+        <img src="./../assets/gallery/hilllock-main.avif"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 1">
+        <img src="./../assets/gallery/hillook-6.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 1">
+        <img src="./../assets/gallery/hillook-7.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 1">
+        <img src="./../assets/gallery/Hilllock-2.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 2">
+        <img src="./../assets/gallery/hilllock-4.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 1">
+        <img src="./../assets/gallery/hilllock-5.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 1">
+        <img src="./../assets/gallery/hilllock-8.webp"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 3">
+        <img src="./../assets/gallery/hilllock-9.avif"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 3">
+        <img src="./../assets/gallery/edit.jpg"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Hillock 3">
+
+    </div>
+    <!-- Vanada -->
+
+    <h2 class="text-3xl font-semibold mb-6">Vanada</h2>
+    <div class="px-4 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 1">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 2">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Vanada 3">
+    </div>
+    <!--Gloryairportcity-->
+
+    <h2 class="text-3xl font-semibold mb-6">Gloryairportcity</h2>
+
+    <div class="px-4 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 1">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 2">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Glory 3">
+    </div>
+    <!--Sapphire County-->
+
+    <h2 class="text-3xl font-semibold mb-6">Sapphire County</h2>
+    <div class="px-4 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery">
+        <img src="./../assets/gallery/sapphire-1.jpeg"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 1">
+        <img src="./../assets/gallery/sapphire-2.jpeg"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 2">
+        <img src="./../assets/gallery/sapphire-1.jpeg"
+            class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 3">
+        <img src="#" class="rounded-lg shadow hover:scale-105 transition-transform duration-300" alt="Sapphire 3">
+
+    </div>
+
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">
+                        <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                            alt="KIYARAA CONINFRA" class="h-16 w-auto">
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        Building dreams into reality with innovation and excellence since 2008.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61577877606243"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coninfrakiyaraa25/"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kiyaraa-coninfra-52aab5372/"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCpXMm74CKaYZyp9fbKJDYMg"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./../index.html" data-readdy="true"
+                                class="text-gray-400 hover:text-white transition-colors">Home</a>
+                        </li>
+                        <li><a href="./../about-us/index.html"
+                                class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="./../our-projects/index.html"
+                                class="text-gray-400 hover:text-white transition-colors">Our
+                                Projects</a></li>
+                        <li><a href="./../gallery/index.html"
+                                class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Our Projects</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Residential
+                                Properties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Commercial Spaces</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Luxury Villas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Premium Apartments</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Ongoing Projects</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Completed Projects</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Information</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mt-1 mr-3">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">
+                                Unit 110, First Floor<br>
+                                Aparna Green Homes, Nanakramguda<br>
+                                Hyderabad 500032
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+91 9091773999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@kiyaraaconinfra.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2025 KIYARAA CONINFRA. All rights reserved.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Sitemap</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-colors opacity-0 invisible">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script id="back-to-top-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script id="animation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('reveal');
+            });
+            function revealOnScroll() {
+                sections
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight - 150) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+
+    <!-- Lightbox & Filter Script -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({ selector: '.glightbox' });
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                filterButtons.forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+                btn.classList.add('bg-blue-600', 'text-white');
+
+                items.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
