@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIYARAA CONINFRA - Luxury Real Estate</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#003366', secondary: '#C0C0C0' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.1) 100%), url('https://readdy.ai/api/search-image?query=ultra%20modern%20luxury%20real%20estate%20building%20with%20sleek%20glass%20facade%2C%20minimalist%20architecture%2C%20high-end%20residential%20tower%20with%20dramatic%20lighting%2C%20professional%20architectural%20photography%2C%20clean%20lines%2C%20evening%20golden%20hour%2C%20no%20people%2C%20cinematic%20wide%20angle%20shot%2C%20photorealistic&width=1920&height=1080&seq=hero1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .metallic-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #C0C0C0 100%);
+        }
+
+        .gold-accent {
+            color: #FFD700;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #003366;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .stats-counter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #003366;
+            box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header & Navigation -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="./index.html" class="flex items-center space-x-2">
+                    <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                        alt="KIYARAA CONINFRA" class="h-20 w-aut0">
+                </a>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="./index.html"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Home</a>
+                <a href="./about-us/index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">About Us</a>
+                <a href="./our-projects/index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Our Projects</a>
+                <a href="#gallery"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Contact Us</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary cursor-pointer">
+                    <i class="ri-search-line ri-lg"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center lg:hidden text-gray-700 hover:text-primary cursor-pointer"
+                    id="mobile-menu-button">
+                    <i class="ri-menu-line ri-lg"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="./index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">Home</a>
+                <a href="./about-us/index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">About
+                    Us</a>
+                <a href="./our-projects/index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">Our
+                    Projects</a>
+                <a href="#gallery" class="text-gray-800 font-medium py-2 border-b border-gray-100">Gallery</a>
+                <a href="#contact" class="text-gray-800 font-medium py-2">Contact Us</a>
+                <button
+                    class="flex items-center justify-center space-x-2 bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                    <i class="ri-download-line"></i>
+                    <span>Download Brochure</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section w-full min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-4 py-20 w-full">
+            <div class="w-full flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 pr-0 md:pr-12">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Redefining <span class="text-primary">Luxury</span> Living For Tomorrow
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">
+                        Architectural excellence meets innovative design. Experience the future of premium real estate
+                        with KIYARAA CONINFRA's signature developments.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="./our-projects/index.html"><button
+                                class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Explore Projects
+                            </button></a>
+                        <a href="#contact"><button
+                                class="border-2 border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">
+                                Book Consultation
+                            </button></a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 mt-12 md:mt-0">
+                    <div class="bg-white/80 backdrop-blur-sm shadow-xl rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Quick Inquiry</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Full Name"
+                                    class="input-field w-full px-4 py-3 rounded focus:outline-none">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email Address"
+                                    class="input-field w-full px-4 py-3 rounded focus:outline-none">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Phone Number"
+                                    class="input-field w-full px-4 py-3 rounded focus:outline-none">
+                            </div>
+                            <div>
+                                <select
+                                    class="input-field w-full px-4 py-3 rounded focus:outline-none pr-8 appearance-none">
+                                   
+                                    <option value="" disabled selected>Interested In</option>
+                                    <option value="residential">Residential Properties</option>
+                                    <option value="commercial">Commercial Properties</option>
+                                    <option value="investment">Investment Opportunities</option>
+                                </select>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Submit Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Us Preview -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20architectural%20office%20with%20glass%20walls%2C%20professional%20real%20estate%20team%20in%20business%20meeting%2C%20sleek%20conference%20room%20with%20city%20views%2C%20business%20professionals%20discussing%20property%20plans%2C%20architectural%20blueprints%20on%20table%2C%20contemporary%20office%20design%2C%20natural%20lighting%2C%20professional%20photography&width=800&height=600&seq=about1&orientation=landscape"
+                            alt="KIYARAA CONINFRA Team"
+                            class="w-full h-auto rounded-lg shadow-xl object-cover object-top">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                            <p class="text-sm font-medium text-gray-600">Established</p>
+                            <p class="text-3xl font-bold text-primary">2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="mb-2 inline-block">
+                        <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">About
+                            Us</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Building Excellence Through Innovation</h2>
+                    <p class="text-gray-700 mb-6">
+                        KIYARAA CONINFRA has been at the forefront of luxury real estate development for over 15 years.
+                        We combine architectural brilliance with sustainable practices to create living spaces that
+                        transcend the ordinary.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        Our commitment to quality, innovation, and customer satisfaction has made us one of the most
+                        trusted names in the industry. Each project reflects our passion for excellence and attention to
+                        detail.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="text-center">
+                            <p class="stats-counter text-3xl md:text-4xl font-bold text-primary">42+</p>
+                            <p class="text-gray-600 mt-2">Projects Completed</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="stats-counter text-3xl md:text-4xl font-bold text-primary">15+</p>
+                            <p class="text-gray-600 mt-2">Years Experience</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="stats-counter text-3xl md:text-4xl font-bold text-primary">320+</p>
+                            <p class="text-gray-600 mt-2">Happy Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="stats-counter text-3xl md:text-4xl font-bold text-primary">18</p>
+                            <p class="text-gray-600 mt-2">Awards Won</p>
+                        </div>
+                    </div>
+                    <a href="./about-us/index.html"
+                        data-readdy="true"
+                        class="flex items-center space-x-2 bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                        <span>Read More About Us</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Projects -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="mb-2 inline-block">
+                    <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Our
+                        Projects</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Signature Developments</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto">
+                    Explore our portfolio of premium residential and commercial properties designed to elevate your
+                    lifestyle and investment opportunities.
+                </p>
+            </div>
+            <div class="mb-8 flex flex-wrap justify-center gap-4">
+                <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">All Projects</button>
+                <a href="#"><button
+                    class="bg-gray-200 text-gray-800 px-4 py-2 !rounded-button hover:bg-gray-300 transition-colors whitespace-nowrap">Residential</button></a>
+                <a href="#"><button
+                    class="bg-gray-200 text-gray-800 px-4 py-2 !rounded-button hover:bg-gray-300 transition-colors whitespace-nowrap">Commercial</button></a>
+               <a href="#"> <button
+                    class="bg-gray-200 text-gray-800 px-4 py-2 !rounded-button hover:bg-gray-300 transition-colors whitespace-nowrap">Ongoing</button></a>
+               <a href="#"> <button
+                    class="bg-gray-200 text-gray-800 px-4 py-2 !rounded-button hover:bg-gray-300 transition-colors whitespace-nowrap">Completed</button></a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- HILLOCK Weekend Homes -->
+                <div class="project-card group rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxurious%20weekend%20homes%20in%20natural%20hillside%20setting%2C%20modern%20farmhouse%20architecture%2C%20scenic%20mountain%20views%2C%20lush%20greenery%2C%20professional%20real%20estate%20photography%2C%20golden%20hour%20lighting%2C%20serene%20environment&width=600&height=400&seq=hillock&orientation=landscape"
+                            alt="HILLOCK Weekend Homes"
+                            class="w-full h-64 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="project-overlay absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button
+                                class="bg-white text-primary px-6 py-3 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap">
+                                View Details
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
+                            Ongoing
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">HILLOCK Weekend Homes</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">Mominpet, Hyderabad</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            Premium weekend homes with scenic views and modern amenities for a perfect getaway.
+                        </p>
+                        <div class="flex justify-between">
+                            <span class="text-primary font-semibold">₹12,Lakhs onwards</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Vanada Open Plots -->
+                <div class="project-card group rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20residential%20open%20plots%20with%20developed%20infrastructure%2C%20well-planned%20layout%2C%20wide%20roads%2C%20landscaped%20surroundings%2C%20aerial%20view%2C%20professional%20real%20estate%20photography%2C%20clear%20sunny%20day&width=600&height=400&seq=vanada&orientation=landscape"
+                            alt="Vanada Open Plots"
+                            class="w-full h-64 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="project-overlay absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button
+                                class="bg-white text-primary px-6 py-3 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap">
+                                View Details
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
+                            Ongoing
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Vanada Open Plots</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">, Hyderabad</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            HMDA approved plots with excellent connectivity and future growth potential.
+                        </p>
+                        <div class="flex justify-between">
+                            <span class="text-primary font-semibold">₹10,000/sq.yd</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Airport Glory City -->
+                <div class="project-card group rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20residential%20plot%20development%20near%20airport%2C%20modern%20gated%20community%2C%20well-planned%20infrastructure%2C%20wide%20roads%2C%20streetlights%2C%20professional%20real%20estate%20photography%2C%20aerial%20view%2C%20clear%20day&width=600&height=400&seq=airport&orientation=landscape"
+                            alt="Airport Glory City"
+                            class="w-full h-64 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="project-overlay absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button
+                                class="bg-white text-primary px-6 py-3 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap">
+                                View Details
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
+                            Ongoing
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Glory Airport City</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">Shadnagar Near Airport, Hyderabad</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            Premium plots near upcoming Airport with world-class infrastructure.
+                        </p>
+                        <div class="flex justify-between">
+                            <span class="text-primary font-semibold">₹10,000/sq.yd</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Sapphire County -->
+                <div class="project-card group rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20residential%20plot%20development%2C%20gated%20community%20with%20premium%20amenities%2C%20beautifully%20landscaped%20entrance%2C%20wide%20roads%2C%20modern%20infrastructure%2C%20professional%20real%20estate%20photography%2C%20aerial%20view%2C%20clear%20day&width=600&height=400&seq=sapphire&orientation=landscape"
+                            alt="Sapphire County"
+                            class="w-full h-64 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="project-overlay absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button
+                                class="bg-white text-primary px-6 py-3 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap">
+                                View Details
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
+                            Ongoing
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sapphire County</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">Shadnagar, Hyderabad</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            Premium open plots in a gated community with excellent appreciation potential.
+                        </p>
+                        <div class="flex justify-between">
+                            <span class="text-primary font-semibold">₹10,000/sq.yd</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <button
+                    class="border-2 border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">
+                    View All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="mb-2 inline-block">
+                    <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Market
+                        Analysis</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Hyderabad Real Estate Development</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto">
+                    Explore prime real estate developments across Hyderabad with detailed land rates and growth
+                    potential.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Financial District -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                            <i class="ri-building-4-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">Financial District</h4>
+                            <p class="text-gray-600">Premium Commercial Hub</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Commercial Rate</span>
+                            <span class="font-semibold">₹12,000 - 15,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Residential Rate</span>
+                            <span class="font-semibold">₹8,000 - 10,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Annual Growth</span>
+                            <span class="text-green-600 font-semibold">12-15%</span>
+                        </div>
+                        <p class="text-gray-700 mt-4">
+                            Major IT parks, financial institutions, and premium residential developments. High potential
+                            for investment returns.
+                        </p>
+                    </div>
+                </div>
+                <!-- Gachibowli -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                            <i class="ri-community-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">Gachibowli</h4>
+                            <p class="text-gray-600">IT & Residential Hub</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Commercial Rate</span>
+                            <span class="font-semibold">₹10,000 - 13,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Residential Rate</span>
+                            <span class="font-semibold">₹7,000 - 9,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Annual Growth</span>
+                            <span class="text-green-600 font-semibold">10-12%</span>
+                        </div>
+                        <p class="text-gray-700 mt-4">
+                            Established IT corridor with excellent connectivity. Premium residential communities and
+                            educational institutions.
+                        </p>
+                    </div>
+                </div>
+                <!-- Kokapet -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                            <i class="ri-landscape-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">Kokapet</h4>
+                            <p class="text-gray-600">Emerging Growth Corridor</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Commercial Rate</span>
+                            <span class="font-semibold">₹8,000 - 10,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Residential Rate</span>
+                            <span class="font-semibold">₹5,000 - 7,000/sq.ft</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Annual Growth</span>
+                            <span class="text-green-600 font-semibold">15-18%</span>
+                        </div>
+                        <p class="text-gray-700 mt-4">
+                            Rapidly developing area with upcoming infrastructure projects. High potential for future
+                            appreciation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-6">Development Highlights</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                            <i class="ri-road-map-line ri-lg"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Infrastructure</h4>
+                        <p class="text-gray-600 text-sm">Metro connectivity, ORR access, and upcoming corridors
+                            enhancing accessibility</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                            <i class="ri-building-2-line ri-lg"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Commercial Growth</h4>
+                        <p class="text-gray-600 text-sm">Major IT parks, financial institutions, and retail developments
+                            driving demand</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                            <i class="ri-home-smile-line ri-lg"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Residential Demand</h4>
+                        <p class="text-gray-600 text-sm">Growing preference for integrated townships and luxury
+                            apartments</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                            <i class="ri-line-chart-line ri-lg"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Investment Returns</h4>
+                        <p class="text-gray-600 text-sm">Consistent appreciation with 12-15% annual growth potential</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="mb-2 inline-block">
+                    <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Contact
+                        Us</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto">
+                    Have questions about our properties or services? Our team is here to assist you.
+                </p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form id="contact-form" data-readdy-form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Full Name</label>
+                                    <input type="text" name="fullName"
+                                        class="input-field w-full px-4 py-3 rounded focus:outline-none border-none bg-gray-50"
+                                        placeholder="Your name" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Email Address</label>
+                                    <input type="email" name="email"
+                                        class="input-field w-full px-4 py-3 rounded focus:outline-none border-none bg-gray-50"
+                                        placeholder="Your email" required>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Phone Number</label>
+                                    <input type="tel" name="phone"
+                                        class="input-field w-full px-4 py-3 rounded focus:outline-none border-none bg-gray-50"
+                                        placeholder="Your phone" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Subject</label>
+                                    <select name="subject"
+                                        class="input-field w-full px-4 py-3 rounded focus:outline-none border-none bg-gray-50 pr-8 appearance-none">
+                                        <option value="" disabled selected>Select subject</option>
+                                        <option value="property">Property Inquiry</option>
+                                        <option value="investment">Investment Opportunity</option>
+                                        <option value="career">Career Inquiry</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Message</label>
+                                <textarea name="message" rows="5" maxlength="500"
+                                    class="input-field w-full px-4 py-3 rounded focus:outline-none border-none bg-gray-50"
+                                    placeholder="Your message (max 500 characters)" required></textarea>
+                                <div class="text-right text-sm text-gray-500">
+                                    <span id="char-count">0</span>/500 characters
+                                </div>
+                            </div>
+                            <div id="form-status" class="hidden text-center py-3 px-4 rounded"></div>
+                            <button type="submit"
+                                class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full flex flex-col">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                                    <i class="ri-map-pin-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Corporate Office</h4>
+                                    <p class="text-gray-700">
+                                        Unit 110, First Floor<br>
+                                        Aparna Green Homes, Nanakramguda<br>
+                                        Hyderabad 500032
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                                    <i class="ri-phone-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Phone</h4>
+                                    <p class="text-gray-700">
+                                        +91 9091773999
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                                    <i class="ri-mail-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Email</h4>
+                                    <p class="text-gray-700">
+                                        info@kiyaraaconinfra.com<br>
+                                        sales@kiyaraaconinfra.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+                                    <i class="ri-time-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Working Hours</h4>
+                                    <p class="text-gray-700">
+                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                        Saturday: 10:00 AM - 4:00 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <h4 class="font-semibold text-lg mb-4">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/profile.php?id=61577877606243"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-facebook-fill"></i>
+                                </a>
+                                <a href="https://www.instagram.com/coninfrakiyaraa25/"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-instagram-line"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/kiyaraa-coninfra-52aab5372/"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-linkedin-fill"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-twitter-x-line"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCpXMm74CKaYZyp9fbKJDYMg"
+                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-youtube-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12">
+                <div class="bg-white p-4 rounded-lg shadow-md overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d951.7099853455545!2d78.352534269483!3d17.41946727856747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDI1JzEwLjEiTiA3OMKwMjEnMTEuNCJF!5e0!3m2!1sen!2sin!4v1751543186881!5m2!1sen!2sin"
+                        class="w-full h-[400px]" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">
+                        <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                            alt="KIYARAA CONINFRA" class="h-16 w-auto">
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        Building dreams into reality with innovation and excellence since 2008.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61577877606243"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coninfrakiyaraa25/"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kiyaraa-coninfra-52aab5372/"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCpXMm74CKaYZyp9fbKJDYMg"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="./about-us/index.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="./our-projects/index.html" class="text-gray-400 hover:text-white transition-colors">Our
+                                Projects</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Our Projects</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Residential
+                                Properties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Commercial Spaces</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Luxury Villas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Premium Apartments</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Ongoing Projects</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Completed Projects</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Information</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mt-1 mr-3">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">
+                                Unit 110, First Floor<br>
+                                Aparna Green Homes, Nanakramguda<br>
+                                Hyderabad 500032
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+91 9091773999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@kiyaraaconinfra.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2025 KIYARAA CONINFRA. All rights reserved.
+                </p>
+                 <span class="text-white font-semibold"> Powered by Growthlink <a href="https://growthlink.in/"><img
+                                src="./assets/200x120.png" alt="Powered by Growthlink"></span></a>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Sitemap</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating Contact Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-40">
+        <a href="https://wa.me/919091773999"
+            class="w-14 h-14 flex items-center justify-center rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors">
+            <i class="ri-whatsapp-line ri-xl"></i>
+        </a>
+        <a href="tel:+919091773999"
+            class="w-14 h-14 flex items-center justify-center rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-colors">
+            <i class="ri-phone-line ri-xl"></i>
+        </a>
+    </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-6 left-6 w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-colors opacity-0 invisible">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <!-- Scripts -->
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script id="back-to-top-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script id="form-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            const messageTextarea = form.querySelector('textarea[name="message"]');
+            const charCount = document.getElementById('char-count');
+            messageTextarea.addEventListener('input', function () {
+                const count = this.value.length;
+                charCount.textContent = count;
+                if (count > 500) {
+                    this.value = this.value.substring(0, 500);
+                    charCount.textContent = 500;
+                }
+            });
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+                formStatus.classList.add('bg-blue-100', 'text-blue-700');
+                formStatus.textContent = 'Sending message...';
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch('https://readdy.ai/api/form/d1j6tlu5iq446fkc13ag', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(formData),
+                    });
+                    if (response.ok) {
+                        formStatus.classList.remove('bg-blue-100', 'text-blue-700');
+                        formStatus.classList.add('bg-green-100', 'text-green-700');
+                        formStatus.textContent = 'Message sent successfully!';
+                        form.reset();
+                        charCount.textContent = '0';
+                    } else {
+                        throw new Error('Failed to send message');
+                    }
+                } catch (error) {
+                    formStatus.classList.remove('bg-blue-100', 'text-blue-700');
+                    formStatus.classList.add('bg-red-100', 'text-red-700');
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                }
+            });
+        });
+    </script>
+    <script id="animation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('reveal');
+            });
+            function revealOnScroll() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight - 150) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

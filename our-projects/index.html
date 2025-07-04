@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#3b82f6', secondary: '#64748b' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .category-pill {
+            transition: all 0.2s ease;
+        }
+
+        .category-pill:hover {
+            opacity: 0.9;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            background-color: white;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            top: 2px;
+            left: 6px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./../index.html" class="flex items-center">
+                <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                    alt="Kiyaraa Logo" class="h-20 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="./../index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Home</a>
+                <a href="./../about-us/index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">About Us</a>
+                <a href="./../our-projects/index.html" data-readdy="true"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Our Projects</a>
+                <a href="#gallery"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact"
+                    class="nav-link text-gray-800 font-medium hover:text-primary transition-colors">Contact Us</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="./../index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">Home</a>
+                <a href="./../about-us/index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">About
+                    Us</a>
+                <a href="./../our-projects/index.html" class="text-gray-800 font-medium py-2 border-b border-gray-100">Our
+                    Projects</a>
+                <a href="#gallery" class="text-gray-800 font-medium py-2 border-b border-gray-100">Gallery</a>
+                <a href="#contact" class="text-gray-800 font-medium py-2">Contact Us</a>
+            </div>
+        </div>
+    </header>
+    <!-- Page Title -->
+    <section class="bg-white py-12 md:py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Projects</h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover our portfolio of successful projects across
+                    various industries. Each project represents our commitment to excellence and innovation.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Filters Section -->
+    <section class="bg-white border-t border-b border-gray-100 py-4 sticky top-[73px] z-[5] shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex items-center space-x-6">
+                    <div class="relative">
+                        <button id="categoryDropdown"
+                            class="flex items-center justify-between w-48 px-4 py-2 bg-white border border-gray-300 rounded text-gray-700 whitespace-nowrap">
+                            <span>All Categories</span>
+                            <i class="ri-arrow-down-s-line ri-lg"></i>
+                        </button>
+                        <div id="categoryMenu"
+                            class="hidden absolute left-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                            <div class="p-2 flex items-center space-x-2">
+                               
+                                <label for="all" class="text-lg cursor-pointer">All Categories</label>
+                            </div>
+                            <div class="p-2 flex items-center space-x-2">
+                               
+                                <a href="#"><label for="residential" class="text-sm cursor-pointer">Residential</label></a>
+                            </div>
+                            <div class="p-2 flex items-center space-x-2">
+                                
+                               <a href="#"><label for="commercial" class="text-sm cursor-pointer">Commercial</label></a> 
+                            </div>
+                            <div class="p-2 flex items-center space-x-2">
+                                
+                                <a href="#"><label for="industrial" class="text-sm cursor-pointer">Industrial</label></a>
+                            </div>
+                            <div class="p-2 flex items-center space-x-2">
+                                
+                               <a href="#"> <label for="infrastructure" class="text-sm cursor-pointer">Infrastructure</label></a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Projects Grid -->
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- HILLOCK Weekend Homes -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxurious%20weekend%20homes%20in%20a%20scenic%20hillside%20setting%2C%20modern%20villa%20development%20with%20panoramic%20views%2C%20lush%20green%20surroundings%2C%20beautiful%20landscaping%2C%20premium%20residential%20architecture%2C%20natural%20environment%2C%20high-end%20real%20estate%20photography&width=600&height=400&seq=1&orientation=landscape"
+                            alt="HILLOCK Weekend Homes" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-primary/90 text-white text-xs font-medium px-2.5 py-1 rounded">Premium
+                                Plots</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="category-pill bg-green-100 text-green-700 text-xs px-2.5 py-1 rounded-full">Weekend
+                                Homes</span>
+                            <span
+                                class="category-pill bg-yellow-100 text-yellow-700 text-xs px-2.5 py-1 rounded-full">Luxury</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">HILLOCK Weekend Homes</h3>
+                        <p class="text-gray-600 mb-4">Experience luxury living with our exclusive weekend homes
+                            featuring panoramic views, premium amenities, and serene surroundings perfect for your
+                            weekend getaway.</p>
+                        <div class="flex flex-wrap gap-y-2 gap-x-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span>Premium Location</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-ruler-line"></i>
+                                </div>
+                                <span>Plot Sizes: 200-400 sq. yds</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-home-4-line"></i>
+                                </div>
+                                <span>HMDA Approved</span>
+                            </div>
+                        </div>
+                        <a href="./../assets/brouchures/Hillock-Broucher.pdf" class="download-btn inline-flex items-center text-primary hover:text-primary/80">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1.5">
+                                <i class="ri-file-download-line"></i>
+                            </div>
+                            <span>Download Brochure</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Vanada Open Plots -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=well-planned%20residential%20open%20plots%20development%2C%20aerial%20view%20of%20plotted%20development%2C%20organized%20layout%20with%20wide%20roads%2C%20green%20spaces%2C%20modern%20infrastructure%2C%20professional%20real%20estate%20photography%2C%20clear%20plot%20demarcation&width=600&height=400&seq=2&orientation=landscape"
+                            alt="Vanada Open Plots" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-primary/90 text-white text-xs font-medium px-2.5 py-1 rounded">Open
+                                Plots</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="category-pill bg-blue-100 text-blue-700 text-xs px-2.5 py-1 rounded-full">Residential</span>
+                            <span
+                                class="category-pill bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-full">Investment</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Vanada Open Plots</h3>
+                        <p class="text-gray-600 mb-4">Premium open plots in a rapidly developing area with excellent
+                            connectivity, modern infrastructure, and high appreciation potential.</p>
+                        <div class="flex flex-wrap gap-y-2 gap-x-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span>Strategic Location</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-road-map-line"></i>
+                                </div>
+                                <span>40ft & 30ft Roads</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span>Clear Title Plots</span>
+                            </div>
+                        </div>
+                        <a href="./../assets/brouchures/vanada.pdf" class="download-btn inline-flex items-center text-primary hover:text-primary/80">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1.5">
+                                <i class="ri-file-download-line"></i>
+                            </div>
+                            <span>Download Brochure</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Airport Glory City -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20gated%20community%20near%20airport%2C%20aerial%20view%20of%20residential%20development%2C%20well-planned%20infrastructure%2C%20wide%20roads%2C%20landscaped%20gardens%2C%20professional%20real%20estate%20photography%2C%20urban%20planning%20perspective&width=600&height=400&seq=3&orientation=landscape"
+                            alt="Airport Glory City" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-primary/90 text-white text-xs font-medium px-2.5 py-1 rounded">Open
+                                Plots</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="category-pill bg-orange-100 text-orange-700 text-xs px-2.5 py-1 rounded-full">Near
+                                Airport</span>
+                            <span
+                                class="category-pill bg-emerald-100 text-emerald-700 text-xs px-2.5 py-1 rounded-full">Gated
+                                Community</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Airport Glory City</h3>
+                        <p class="text-gray-600 mb-4">Exclusive open plots near the airport with world-class amenities,
+                            secure gated community, and excellent investment potential.</p>
+                        <div class="flex flex-wrap gap-y-2 gap-x-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span>Near Airport</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-shield-check-line"></i>
+                                </div>
+                                <span>Gated Security</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-community-line"></i>
+                                </div>
+                                <span>Premium Amenities</span>
+                            </div>
+                        </div>
+                        <a href="#" class="download-btn inline-flex items-center text-primary hover:text-primary/80">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1.5">
+                                <i class="ri-file-download-line"></i>
+                            </div>
+                            <span>Download Brochure</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Sapphire County -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20residential%20plot%20development%2C%20premium%20gated%20community%2C%20beautifully%20landscaped%20entrance%2C%20modern%20infrastructure%2C%20wide%20roads%2C%20professional%20real%20estate%20photography%2C%20upscale%20residential%20area&width=600&height=400&seq=4&orientation=landscape"
+                            alt="Sapphire County" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-primary/90 text-white text-xs font-medium px-2.5 py-1 rounded">Open
+                                Plots</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="category-pill bg-indigo-100 text-indigo-700 text-xs px-2.5 py-1 rounded-full">Premium</span>
+                            <span
+                                class="category-pill bg-rose-100 text-rose-700 text-xs px-2.5 py-1 rounded-full">Residential</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sapphire County</h3>
+                        <p class="text-gray-600 mb-4">Premium residential plots in a well-planned community featuring
+                            modern infrastructure, landscaped gardens, and comprehensive amenities.</p>
+                        <div class="flex flex-wrap gap-y-2 gap-x-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span>Prime Location</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-landscape-line"></i>
+                                </div>
+                                <span>Landscaped Gardens</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1.5">
+                                    <i class="ri-bank-line"></i>
+                                </div>
+                                <span>Bank Loan Available</span>
+                            </div>
+                        </div>
+                        <a href="#" class="download-btn inline-flex items-center text-primary hover:text-primary/80">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1.5">
+                                <i class="ri-file-download-line"></i>
+                            </div>
+                            <span>Download Brochure</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-10 h-10 border border-gray-300 rounded-l-md bg-white text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Previous</span>
+                        <i class="ri-arrow-left-s-line ri-lg"></i>
+                    </a>
+                    <a href="./../our-projects/index.html"
+                        class="inline-flex items-center justify-center w-10 h-10 border-t border-b border-gray-300 bg-primary text-white">1</a>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-10 h-10 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-10 h-10 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-10 h-10 border border-gray-300 rounded-r-md bg-white text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Next</span>
+                        <i class="ri-arrow-right-s-line ri-lg"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="./../index.html" class="inline-block mb-4">
+                        <img src="https://static.readdy.ai/image/4c54787fd2047152d108467e5113439e/73fa38a29c46ae6fa29fef17ff0260da.jfif"
+                            alt="Kiyaraa Logo" class="h-16 w-auto">
+                    </a>
+                    <p class="text-gray-400 mb-6">We are a leading construction and project management firm with over 25
+                        years of experience delivering exceptional results across various sectors.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61577877606243"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kiyaraa-coninfra-52aab5372/"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coninfrakiyaraa25/"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCpXMm74CKaYZyp9fbKJDYMg"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./../index.html"
+                                data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                        </li>
+                        <li><a href="./../about-us/index.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="./../our-projects/index.html" class="text-gray-400 hover:text-white transition-colors">Our Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Residential
+                                Properties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Commercial Spaces</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Luxury Villas</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Premium Apartments</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Ongoing Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Completed Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5 text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">Plot No. 1234, Road No. 12<br>Banjara Hills, Hyderabad</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@kiyaraa.com</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 text-primary">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-400">Mon-Sat: 9:30 AM - 6:30 PM<br>Sunday: Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>© 2025 Construction Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script id="dropdownToggleScript">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Category dropdown
+            const categoryDropdown = document.getElementById('categoryDropdown');
+            const categoryMenu = document.getElementById('categoryMenu');
+            categoryDropdown.addEventListener('click', function () {
+                categoryMenu.classList.toggle('hidden');
+            });
+            // Sort dropdown
+            const sortDropdown = document.getElementById('sortDropdown');
+            const sortMenu = document.getElementById('sortMenu');
+            sortDropdown.addEventListener('click', function () {
+                sortMenu.classList.toggle('hidden');
+            });
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!categoryDropdown.contains(event.target) && !categoryMenu.contains(event.target)) {
+                    categoryMenu.classList.add('hidden');
+                }
+                if (!sortDropdown.contains(event.target) && !sortMenu.contains(event.target)) {
+                    sortMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script id="backToTopScript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
